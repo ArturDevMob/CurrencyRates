@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/converter_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:padding="22dp">
+
+            <ImageView
+                android:id="@+id/first_flag_country_image"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/ic_no_flag_country"
+                app:layout_constraintBottom_toTopOf="@+id/first_value_edit"
+                app:layout_constraintStart_toStartOf="@+id/first_value_edit" />
+
+            <TextView
+                android:id="@+id/first_char_code_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:text="USD"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/first_flag_country_image"
+                app:layout_constraintStart_toEndOf="@+id/first_flag_country_image"
+                app:layout_constraintTop_toTopOf="@+id/first_flag_country_image" />
+
+            <EditText
+                android:id="@+id/first_value_edit"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="24dp"
+                android:ems="5"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="1"
+                app:layout_constraintBottom_toTopOf="@+id/invert_image"
+                app:layout_constraintEnd_toEndOf="@+id/invert_image"
+                app:layout_constraintStart_toStartOf="@+id/invert_image" />
+
+            <ImageView
+                android:id="@+id/invert_image"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:rotation="90"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/arrows_change" />
+
+            <ImageView
+                android:id="@+id/second_flag_country_image"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_no_flag_country"
+                app:layout_constraintStart_toStartOf="@+id/second_value_text"
+                app:layout_constraintTop_toBottomOf="@+id/second_value_text" />
+
+            <TextView
+                android:id="@+id/second_value_text"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center_horizontal"
+                android:text="0"
+                android:textColor="@color/brilliant_green"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/invert_image"
+                app:layout_constraintStart_toStartOf="@+id/invert_image"
+                app:layout_constraintTop_toBottomOf="@+id/invert_image" />
+
+            <TextView
+                android:id="@+id/second_char_code_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:text="RUB"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/second_flag_country_image"
+                app:layout_constraintStart_toEndOf="@+id/second_flag_country_image"
+                app:layout_constraintTop_toTopOf="@+id/second_flag_country_image" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <include
+        android:id="@+id/include_error_load_data"
+        layout="@layout/error_load_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

@@ -1,0 +1,13 @@
+<resources>
+    <style name="AppThemeDark" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppThemeLight" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">#5C6BC0</item>
+        <item name="colorPrimaryDark">#283593</item>
+        <item name="colorAccent">#00ff00</item>
+    </style>
+</resources>

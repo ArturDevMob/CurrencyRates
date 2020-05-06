@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/rate_action"
+        android:title="@string/rates"
+        android:icon="@drawable/ic_rate"/>
+    <item
+        android:id="@+id/converter_action"
+        android:title="@string/converter"
+        android:icon="@drawable/ic_converter"/>
+    <item
+        android:id="@+id/settings_action"
+        android:title="@string/settings"
+        android:icon="@drawable/ic_settings"/>
+</menu>

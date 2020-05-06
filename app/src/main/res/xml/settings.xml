@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+<PreferenceCategory
+    android:title="@string/currency_rates">
+
+    <SwitchPreference
+        android:key="auto_sync_currency_rates"
+        android:title="@string/auto_update"
+        android:summary="@string/auto_update_desc"
+        android:icon="@drawable/ic_update_time_white"
+        android:defaultValue="true"/>
+
+    <Preference
+        android:key="sync_currency_rates"
+        android:title="@string/update_manually"
+        android:summary="@string/update_manually_desc"
+        android:icon="@drawable/ic_cloud_upload_white"
+        android:selectable="true"/>
+
+</PreferenceCategory>
+
+<PreferenceCategory
+    android:title="@string/appearance_app">
+
+    <SwitchPreferenceCompat
+        android:key="show_light_theme"
+        android:title="@string/light_theme"
+        android:summary="@string/light_theme_desc"
+        android:icon="@drawable/ic_color_lens_white"
+        android:selectable="false"
+        android:enabled="false"
+        android:defaultValue="false"/>
+
+</PreferenceCategory>
+
+</PreferenceScreen>
