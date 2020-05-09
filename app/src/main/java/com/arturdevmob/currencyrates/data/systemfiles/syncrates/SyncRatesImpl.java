@@ -54,7 +54,7 @@ public class SyncRatesImpl implements SyncRates {
     @Override
     public void setWorkSync() {
         OneTimeWorkRequest request = new OneTimeWorkRequest.Builder(SyncRatesWorker.class)
-                .setInitialDelay(getIntervalBeforeNextSync(), TimeUnit.SECONDS)
+                .setInitialDelay(getIntervalBeforeNextSync(), TimeUnit.MILLISECONDS)
                 .build();
 
         WorkManager.getInstance()
