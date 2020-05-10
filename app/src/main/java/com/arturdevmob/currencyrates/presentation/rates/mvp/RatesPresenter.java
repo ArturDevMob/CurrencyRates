@@ -58,4 +58,10 @@ public class RatesPresenter {
     public void onClickErrorLoadDataMessage() {
         this.loadCurrencyRates();
     }
+
+    // Обработка клика на закрытие поиска в тулбаре
+    // Загрузить валютные курсы и отправить вьюхе
+    public void onClickCloseSearch() {
+        this.loadCurrencyRates();
+    }
 }

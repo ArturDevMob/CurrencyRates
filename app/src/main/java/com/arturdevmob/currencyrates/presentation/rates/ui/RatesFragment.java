@@ -36,10 +36,8 @@ import io.reactivex.schedulers.Schedulers;
 public class RatesFragment extends Fragment implements RatesView {
     public static final String TAG = "RatesFragment";
 
-    @Inject
-    RatesPresenter presenter;
-    @Inject
-    RatesAdapter ratesAdapter;
+    @Inject RatesPresenter presenter;
+    @Inject RatesAdapter ratesAdapter;
     private CompositeDisposable compositeDisposable;
     @BindView(R.id.progress) ProgressBar progressBar;
     @BindView(R.id.rates_recycler) RecyclerView ratesRecycler;
@@ -79,6 +77,11 @@ public class RatesFragment extends Fragment implements RatesView {
 
         MenuItem menuItem = menu.findItem(R.id.search_action);
         SearchView searchView = (SearchView) menuItem.getActionView();
+
+        searchView.setOnCloseListener(() -> {
+            presenter.onClickCloseSearch();
+            return false;
+        });
 
         // Поиск валют
         // Неправильная резализация! Переписать!
@@ -143,7 +146,7 @@ public class RatesFragment extends Fragment implements RatesView {
         Toolbar toolbar = ((SingleActivity) getActivity()).getToolbar();
         ((SingleActivity) getActivity()).setSupportActionBar(toolbar);
 
-        toolbar.setTitle(R.string.rates);
+        toolbar.setTitle(R.string.app_name);
         setHasOptionsMenu(true);
     }
 }
