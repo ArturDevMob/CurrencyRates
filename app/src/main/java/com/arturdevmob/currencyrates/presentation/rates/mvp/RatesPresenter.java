@@ -3,9 +3,12 @@ package com.arturdevmob.currencyrates.presentation.rates.mvp;
 import com.arturdevmob.currencyrates.business.core.models.Currency;
 import com.arturdevmob.currencyrates.business.rates.RatesInteractor;
 import java.util.List;
+
+import io.reactivex.Observable;
 import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Function;
 
 public class RatesPresenter {
     private CompositeDisposable compositeDisposable;
@@ -33,8 +36,7 @@ public class RatesPresenter {
         return this.view;
     }
 
-    // Получает от интерактора лист с моделями валют
-    // если валютные курсы неудалось получить, выводит лейаут с ошибкой
+    // Получает лист с моделями валют и просит вью показать их
     public void loadCurrencyRates() {
         getView().showProgress();
 
@@ -48,9 +50,17 @@ public class RatesPresenter {
         );
     }
 
-    // Поиск валют. Неправильная резализация! Переписать!
-    public Single<List<Currency>> loadCurrencyBySearch(String query) {
-        return interactor.getAllCurrencyBySearch(query);
+    // Принимает от вью поисковые запросы. Получает валютные курсы на основании запроса, просит вью показать их
+    public void loadCurrencyBySearch(Observable<String> searchQueryObservable) {
+        compositeDisposable.add(
+                searchQueryObservable
+                        .flatMapSingle((Function<String, Single<List<Currency>>>) s -> interactor.getAllCurrencyBySearch(s))
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(
+                                currencies -> getView().showCurrencyRates(currencies),
+                                throwable -> getView().showErrorLoad()
+                        )
+        );
     }
 
     // Обработка клика по лейаута с ошибкой об отстутствие валютных курсов
