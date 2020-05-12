@@ -5,7 +5,6 @@ import com.arturdevmob.currencyrates.business.core.models.Currency;
 import com.arturdevmob.currencyrates.business.core.repositories.CurrencyRepository;
 import com.arturdevmob.currencyrates.business.core.repositories.SettingsRepository;
 import com.arturdevmob.currencyrates.business.core.system.SyncRates;
-
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -82,8 +81,8 @@ public class SyncRatesImpl implements SyncRates {
         GregorianCalendar calendarUser = new GregorianCalendar(); // Текущее время пользователя
         long intervalDate = 0; // Интервал между датами
 
-        // Если время у календаря больше 14 часов, то переводим календарь на +1 день
-        if (calendarMsk.get(Calendar.HOUR_OF_DAY) > 14) {
+        // Если время у календаря >= 15 часов, то переводим календарь на +1 день
+        if (calendarMsk.get(Calendar.HOUR_OF_DAY) >= 15) {
             calendarMsk.roll(Calendar.DAY_OF_MONTH, 1);
         }
 
@@ -92,10 +91,10 @@ public class SyncRatesImpl implements SyncRates {
             calendarMsk.roll(Calendar.DAY_OF_MONTH, 1);
         }
 
-        // Устанавливаем время на 14:05
+        // Устанавливаем время на 15:00
         // После этого calendarMsk содержит дату и время, в которое нужно получить новые курсы от банка
-        calendarMsk.set(Calendar.HOUR_OF_DAY, 14);
-        calendarMsk.set(Calendar.MINUTE, 05);
+        calendarMsk.set(Calendar.HOUR_OF_DAY, 15);
+        calendarMsk.set(Calendar.MINUTE, 0);
 
         // Считаем интервал между датой, когда обновится курс валют и текущем временем
         intervalDate = calendarMsk.getTimeInMillis() - calendarUser.getTimeInMillis();
