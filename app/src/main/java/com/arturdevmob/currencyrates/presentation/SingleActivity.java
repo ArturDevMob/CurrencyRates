@@ -1,43 +1,51 @@
 package com.arturdevmob.currencyrates.presentation;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceManager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import com.arturdevmob.currencyrates.R;
 import com.arturdevmob.currencyrates.di.application.AppComponent;
-import com.arturdevmob.currencyrates.di.application.AppModule;
-import com.arturdevmob.currencyrates.di.application.DaggerAppComponent;
 import com.arturdevmob.currencyrates.presentation.converter.ui.ConverterFragment;
 import com.arturdevmob.currencyrates.presentation.rates.ui.RatesFragment;
 import com.arturdevmob.currencyrates.presentation.settings.ui.SettingsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.List;
+
 public class SingleActivity extends AppCompatActivity {
-    private AppComponent appComponent;
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.bottom_navigation) BottomNavigationView mBottomNavigationView;
 
     public AppComponent getAppComponent() {
-        return appComponent;
+        return App.getInstance().getAppComponent();
     }
 
     public Toolbar getToolbar() {
         return toolbar;
     }
 
+    // Метод вызывается только из SettingsFragment, когда пользователь нажимает на настройку смены темы
+    // Т.к. setTheme() срабатывает только после запуска активити, пришлось сделать перезапуск активити
+    public void changeTheme() {
+        Intent intent = new Intent(this, SingleActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+        finish();
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setupTheme();
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single);
-
-        setupDi();
 
         ButterKnife.bind(this);
 
@@ -68,16 +76,15 @@ public class SingleActivity extends AppCompatActivity {
     private void setupTheme() {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-        boolean isDarkTheme = preferences.getBoolean("dark_theme_key", true);
+        boolean isDarkTheme = preferences.getBoolean("set_dark_theme", true);
 
-        if (isDarkTheme) setTheme(R.style.AppThemeDark);
-        else setTheme(R.style.AppThemeLight);
-    }
-
-    private void setupDi() {
-        appComponent = DaggerAppComponent.builder()
-                .appModule(new AppModule(getApplicationContext()))
-                .build();
+        if (isDarkTheme) {
+            setTheme(R.style.AppThemeDark);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            setTheme(R.style.AppThemeLight);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
     }
 
     private void createFragment(Fragment fragment, String tag) {

@@ -2,12 +2,9 @@ package com.arturdevmob.currencyrates.presentation.converter.mvp;
 
 import com.arturdevmob.currencyrates.business.converter.ConverterInteractor;
 import com.arturdevmob.currencyrates.business.core.models.Converter;
-import com.arturdevmob.currencyrates.business.core.models.Currency;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
-import io.reactivex.subscribers.DisposableSubscriber;
 
 public class ConverterPresenter {
     private CompositeDisposable compositeDisposable;

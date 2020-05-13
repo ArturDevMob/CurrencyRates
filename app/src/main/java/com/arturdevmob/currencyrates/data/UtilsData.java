@@ -1,13 +1,12 @@
 package com.arturdevmob.currencyrates.data;
 
 import java.text.DecimalFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
 public class UtilsData {
-    public static double parseDoubleFromString(String rate) {
+    private static double parseDoubleFromString(String rate) {
         return Double.parseDouble(rate.replace(",", "."));
     }
 

@@ -90,17 +90,6 @@ public class RatesFragment extends Fragment implements RatesView {
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.search_action:
-                System.out.println("CLick to search!");
-            break;
-        }
-
-        return true;
-    }
-
-    @Override
     public void onDetach() {
         super.onDetach();
         presenter.unbind();

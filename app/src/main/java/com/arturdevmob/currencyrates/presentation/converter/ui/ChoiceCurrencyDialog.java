@@ -6,18 +6,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ProgressBar;
-
 import com.arturdevmob.currencyrates.R;
 import com.arturdevmob.currencyrates.business.core.models.Currency;
 import com.arturdevmob.currencyrates.di.converter.DaggerChoiceCurrencyComponent;
 import com.arturdevmob.currencyrates.presentation.SingleActivity;
 import com.arturdevmob.currencyrates.presentation.converter.mvp.ChoiceCurrencyPresenter;
 import com.arturdevmob.currencyrates.presentation.converter.mvp.ChoiceCurrencyView;
-
 import java.util.List;
-
 import javax.inject.Inject;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
@@ -49,13 +45,11 @@ public class ChoiceCurrencyDialog extends DialogFragment implements ChoiceCurren
 
         unbinder = ButterKnife.bind(this, view);
 
-        AlertDialog dialog = new AlertDialog.Builder(getContext())
+        return new AlertDialog.Builder(getContext())
                 .setTitle(R.string.chosen_currency)
                 .setView(view)
                 .setNeutralButton(R.string.cancel, null)
                 .create();
-
-        return dialog;
     }
 
     @Override

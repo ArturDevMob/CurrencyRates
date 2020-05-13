@@ -2,7 +2,6 @@ package com.arturdevmob.currencyrates.business.core.repositories;
 
 import com.arturdevmob.currencyrates.business.core.models.Currency;
 import java.util.List;
-
 import io.reactivex.Single;
 
 public interface CurrencyRepository {

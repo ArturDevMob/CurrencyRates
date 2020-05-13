@@ -1,6 +1,5 @@
 package com.arturdevmob.currencyrates.business.settings;
 
-import com.arturdevmob.currencyrates.business.core.repositories.CurrencyRepository;
 import com.arturdevmob.currencyrates.business.core.repositories.SettingsRepository;
 import com.arturdevmob.currencyrates.business.core.system.SyncRates;
 
@@ -30,7 +29,7 @@ public class SettingsInteractor {
         }
     }
 
-    public boolean isSetLightThemeApp() {
-        return settingsRepository.isSetLightThemeApp();
+    public boolean isSetDarkThemeApp() {
+        return settingsRepository.isSetDarkThemeApp();
     }
 }

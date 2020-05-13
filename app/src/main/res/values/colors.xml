@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#2d2e32</color>
-    <color name="colorPrimaryDark">#202125</color>
-    <color name="colorAccent">#87b0f2</color>
-
-    <color name="white">#FFFFFF</color>
-    <color name="light_grey">#999999</color>
-    <color name="brilliant_green">#4CAF50</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#ff0076</color>
+    <color name="windowsBackground">#e7e7e7</color>
+    <color name="itemRateBackground">#ffffff</color>
+    <color name="valueCurrencyRate">#4CAF50</color>
+    <color name="bottomMenuBackground">@color/colorPrimary</color>
+    <color name="bottomMenuItemNotActive">#999999</color>
+    <color name="bottomMenuItemActive">#FFFFFF</color>
+    <color name="contentConverterBackground">#FFFFFF</color>
+    <color name="tintIconsInPreference">#2E2E2E</color>
 </resources>

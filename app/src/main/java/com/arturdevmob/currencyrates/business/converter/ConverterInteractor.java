@@ -21,7 +21,7 @@ public class ConverterInteractor {
         Single<Currency> firstCurrencySingle = currencyRepository.getCurrencyByCharCode(firstCurrencyCharCode);
         Single<Currency> secondCurrencySingle = currencyRepository.getCurrencyByCharCode(secondCurrencyCharCode);
 
-        Single<Converter> converterSingle = Single.zip(firstCurrencySingle, secondCurrencySingle, (firstCurrency, secondCurrency) -> {
+        return Single.zip(firstCurrencySingle, secondCurrencySingle, (firstCurrency, secondCurrency) -> {
             double crossRate = firstCurrency.getRate() / secondCurrency.getRate();
 
             return new Converter(
@@ -30,7 +30,5 @@ public class ConverterInteractor {
                     UtilsData.formatRateCurrency(countFirstCurrencyValue * crossRate)
             );
         });
-
-        return converterSingle;
     }
 }

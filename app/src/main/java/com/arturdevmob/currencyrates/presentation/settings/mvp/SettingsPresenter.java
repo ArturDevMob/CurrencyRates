@@ -37,11 +37,11 @@ public class SettingsPresenter {
 
     // Изменение темы приложения на светлую или темную
     public void onClickChangeTheme() {
-        boolean isSetLightThemeApp = interactor.isSetLightThemeApp();
+        boolean isSetLightThemeApp = interactor.isSetDarkThemeApp();
 
         if (isSetLightThemeApp)
-            getView().setLightThemeApp();
+            getView().changeThemeOnDark();
         else
-            getView().setDarkThemeApp();
+            getView().changeThemeOnLight();
     }
 }

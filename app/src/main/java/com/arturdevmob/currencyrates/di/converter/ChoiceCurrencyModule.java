@@ -4,7 +4,6 @@ import com.arturdevmob.currencyrates.business.converter.ChoiceCurrencyInteractor
 import com.arturdevmob.currencyrates.business.core.repositories.CurrencyRepository;
 import com.arturdevmob.currencyrates.presentation.converter.mvp.ChoiceCurrencyPresenter;
 import com.arturdevmob.currencyrates.presentation.converter.ui.ChoiceCurrencyAdapter;
-
 import dagger.Module;
 import dagger.Provides;
 

@@ -3,7 +3,6 @@ package com.arturdevmob.currencyrates.presentation.rates.mvp;
 import com.arturdevmob.currencyrates.business.core.models.Currency;
 import com.arturdevmob.currencyrates.business.rates.RatesInteractor;
 import java.util.List;
-
 import io.reactivex.Observable;
 import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;

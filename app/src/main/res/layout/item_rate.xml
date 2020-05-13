@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginLeft="8dp"
     android:layout_marginTop="4dp"
     android:layout_marginRight="8dp"
     android:layout_marginBottom="4dp"
-    app:cardBackgroundColor="@color/colorPrimary">
+    app:cardBackgroundColor="@color/itemRateBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -66,14 +66,14 @@
                     android:fontFamily="sans-serif-condensed-medium"
                     android:text="166.58"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/brilliant_green" />
+                    android:textColor="@color/valueCurrencyRate" />
 
                 <ImageView
                     android:layout_width="12dp"
                     android:layout_height="12dp"
                     android:layout_marginLeft="4dp"
                     android:src="@drawable/ic_ruble"
-                    android:tint="@color/brilliant_green" />
+                    android:tint="@color/valueCurrencyRate" />
             </LinearLayout>
 
         </LinearLayout>

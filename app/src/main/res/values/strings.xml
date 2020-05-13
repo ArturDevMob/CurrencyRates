@@ -14,8 +14,8 @@
     <string name="update_manually">Обновить вручную</string>
     <string name="update_manually_desc">Нажмите, если хотите получить актуальные валютные курсы прямо сейчас</string>
     <string name="appearance_app">Внешний вид приложения</string>
-    <string name="light_theme">Светлая тема</string>
-    <string name="light_theme_desc">Включение опции сделает приложение в светлых тонах (временно недоступно)</string>
+    <string name="dark_theme">Темная тема</string>
+    <string name="dark_theme_desc">Включение опции сделает приложение в темных тонах</string>
     <string name="update_currency_rates_done">Получены новые валютные курсы</string>
     <string name="update_currency_rates_error">Неудалось обновить валютные курсы</string>
     <string name="desc_channel">Предназначен для уведомления об обновлении валютных курсов.</string>

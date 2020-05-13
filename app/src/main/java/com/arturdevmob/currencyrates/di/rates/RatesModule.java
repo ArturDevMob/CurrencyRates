@@ -6,7 +6,6 @@ import com.arturdevmob.currencyrates.business.core.system.SyncRates;
 import com.arturdevmob.currencyrates.business.rates.RatesInteractor;
 import com.arturdevmob.currencyrates.presentation.rates.mvp.RatesPresenter;
 import com.arturdevmob.currencyrates.presentation.rates.ui.RatesAdapter;
-
 import dagger.Module;
 import dagger.Provides;
 

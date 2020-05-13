@@ -81,8 +81,8 @@ public class SyncRatesImpl implements SyncRates {
         GregorianCalendar calendarUser = new GregorianCalendar(); // Текущее время пользователя
         long intervalDate = 0; // Интервал между датами
 
-        // Если время у календаря >= 15 часов, то переводим календарь на +1 день
-        if (calendarMsk.get(Calendar.HOUR_OF_DAY) >= 15) {
+        // Если время у календаря >= 14 часов, то переводим календарь на +1 день
+        if (calendarMsk.get(Calendar.HOUR_OF_DAY) >= 14) {
             calendarMsk.roll(Calendar.DAY_OF_MONTH, 1);
         }
 
@@ -91,10 +91,10 @@ public class SyncRatesImpl implements SyncRates {
             calendarMsk.roll(Calendar.DAY_OF_MONTH, 1);
         }
 
-        // Устанавливаем время на 15:00
+        // Устанавливаем время на 14:10
         // После этого calendarMsk содержит дату и время, в которое нужно получить новые курсы от банка
-        calendarMsk.set(Calendar.HOUR_OF_DAY, 15);
-        calendarMsk.set(Calendar.MINUTE, 0);
+        calendarMsk.set(Calendar.HOUR_OF_DAY, 14);
+        calendarMsk.set(Calendar.MINUTE, 10);
 
         // Считаем интервал между датой, когда обновится курс валют и текущем временем
         intervalDate = calendarMsk.getTimeInMillis() - calendarUser.getTimeInMillis();

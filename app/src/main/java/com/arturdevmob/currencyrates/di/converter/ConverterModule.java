@@ -3,7 +3,6 @@ package com.arturdevmob.currencyrates.di.converter;
 import com.arturdevmob.currencyrates.business.converter.ConverterInteractor;
 import com.arturdevmob.currencyrates.business.core.repositories.CurrencyRepository;
 import com.arturdevmob.currencyrates.presentation.converter.mvp.ConverterPresenter;
-
 import dagger.Module;
 import dagger.Provides;
 

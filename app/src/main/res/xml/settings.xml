@@ -24,13 +24,12 @@
     android:title="@string/appearance_app">
 
     <SwitchPreferenceCompat
-        android:key="show_light_theme"
-        android:title="@string/light_theme"
-        android:summary="@string/light_theme_desc"
+        android:key="set_dark_theme"
+        android:title="@string/dark_theme"
+        android:summary="@string/dark_theme_desc"
         android:icon="@drawable/ic_color_lens_white"
-        android:selectable="false"
-        android:enabled="false"
-        android:defaultValue="false"/>
+        android:selectable="true"
+        android:defaultValue="true"/>
 
 </PreferenceCategory>
 

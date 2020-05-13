@@ -9,7 +9,6 @@ import android.widget.TextView;
 import com.arturdevmob.currencyrates.R;
 import com.arturdevmob.currencyrates.business.core.models.Currency;
 import com.bumptech.glide.Glide;
-
 import java.util.ArrayList;
 import java.util.List;
 import androidx.annotation.NonNull;

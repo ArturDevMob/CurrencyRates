@@ -2,7 +2,6 @@ package com.arturdevmob.currencyrates.di.application;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-
 import com.arturdevmob.currencyrates.business.core.repositories.CurrencyRepository;
 import com.arturdevmob.currencyrates.business.core.repositories.SettingsRepository;
 import com.arturdevmob.currencyrates.business.core.system.SyncRates;
@@ -12,9 +11,7 @@ import com.arturdevmob.currencyrates.data.sources.network.CbrRateApi;
 import com.arturdevmob.currencyrates.data.repositories.CurrencyRepositoryImpl;
 import com.arturdevmob.currencyrates.data.repositories.SettingsRepositoryImpl;
 import com.arturdevmob.currencyrates.data.systemfiles.syncrates.SyncRatesImpl;
-
 import javax.inject.Singleton;
-
 import androidx.preference.PreferenceManager;
 import androidx.room.Room;
 import dagger.Module;

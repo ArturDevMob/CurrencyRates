@@ -1,13 +1,8 @@
 package com.arturdevmob.currencyrates.presentation.converter.mvp;
 
 import com.arturdevmob.currencyrates.business.converter.ChoiceCurrencyInteractor;
-import com.arturdevmob.currencyrates.business.core.models.Currency;
-
-import java.util.List;
-
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.observers.DisposableSingleObserver;
 
 public class ChoiceCurrencyPresenter {
     private CompositeDisposable compositeDisposable;

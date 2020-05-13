@@ -1,8 +1,6 @@
 package com.arturdevmob.currencyrates.presentation.converter.ui;
 
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +9,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import com.arturdevmob.currencyrates.R;
 import com.arturdevmob.currencyrates.di.converter.DaggerConverterComponent;
 import com.arturdevmob.currencyrates.presentation.SingleActivity;
@@ -19,11 +16,7 @@ import com.arturdevmob.currencyrates.presentation.converter.mvp.ConverterPresent
 import com.arturdevmob.currencyrates.presentation.converter.mvp.ConverterView;
 import com.bumptech.glide.Glide;
 import com.google.android.material.snackbar.Snackbar;
-
-import java.util.concurrent.TimeUnit;
-
 import javax.inject.Inject;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
@@ -31,16 +24,6 @@ import androidx.fragment.app.Fragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.OnTextChanged;
-import io.reactivex.BackpressureStrategy;
-import io.reactivex.Flowable;
-import io.reactivex.FlowableEmitter;
-import io.reactivex.FlowableOnSubscribe;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
-import io.reactivex.subscribers.DisposableSubscriber;
-
-import static butterknife.OnTextChanged.Callback.AFTER_TEXT_CHANGED;
 
 public class ConverterFragment extends Fragment implements ConverterView {
     public static final String TAG = "ConverterFragment";

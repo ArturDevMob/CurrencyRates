@@ -19,12 +19,6 @@ public class LocalStorage {
         return preferences.getString(key, value);
     }
 
-    public void putBoolean(String key, boolean value) {
-        preferences.edit()
-                .putBoolean(key, value)
-                .apply();
-    }
-
     public boolean getBoolean(String key, boolean value) {
         return preferences.getBoolean(key, value);
     }
