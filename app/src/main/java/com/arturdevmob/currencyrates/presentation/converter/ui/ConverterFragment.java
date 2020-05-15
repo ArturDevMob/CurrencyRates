@@ -112,7 +112,6 @@ public class ConverterFragment extends Fragment implements ConverterView {
                 .load(imageUrl)
                 .error(R.drawable.ic_no_flag_country)
                 .placeholder(R.drawable.ic_no_flag_country)
-                .sizeMultiplier(0.5f)
                 .into(firstFlagCountryImage);
     }
 
@@ -127,7 +126,6 @@ public class ConverterFragment extends Fragment implements ConverterView {
                 .load(imageUrl)
                 .error(R.drawable.ic_no_flag_country)
                 .placeholder(R.drawable.ic_no_flag_country)
-                .sizeMultiplier(0.5f)
                 .into(secondFlagCountryImage);
     }
 
@@ -187,7 +185,8 @@ public class ConverterFragment extends Fragment implements ConverterView {
         this.showDialogChoiceCurrency(charCodeCurrency -> {
             presenter.loadConverter(
                     firstCharCodeText.getText().toString(),
-                    charCodeCurrency
+                    charCodeCurrency,
+                    getFirstCurrencyValue()
             );
         });
     }

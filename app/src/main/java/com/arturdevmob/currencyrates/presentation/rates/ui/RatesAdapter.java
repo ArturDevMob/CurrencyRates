@@ -48,7 +48,6 @@ public class RatesAdapter extends RecyclerView.Adapter<RatesAdapter.ViewHolder> 
                 .load(currency.getImageUrl())
                 .error(R.drawable.ic_no_flag_country)
                 .placeholder(R.drawable.ic_no_flag_country)
-                .sizeMultiplier(0.5f)
                 .into(holder.countryFlagImage);
 
         holder.nameText.setText(currency.getName());

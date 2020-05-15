@@ -17,8 +17,6 @@ import com.arturdevmob.currencyrates.presentation.rates.ui.RatesFragment;
 import com.arturdevmob.currencyrates.presentation.settings.ui.SettingsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.List;
-
 public class SingleActivity extends AppCompatActivity {
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.bottom_navigation) BottomNavigationView mBottomNavigationView;
