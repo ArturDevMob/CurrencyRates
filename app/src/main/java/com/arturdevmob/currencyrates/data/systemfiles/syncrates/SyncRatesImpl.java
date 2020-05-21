@@ -33,7 +33,7 @@ public class SyncRatesImpl implements SyncRates {
     public void runSync() {
         NotifiOnSync notifiOnSync = new NotifiOnSync(context);
 
-        currencyRepository.syncRates()
+        currencyRepository.loadAndGetNewCurrencyRates()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new DisposableSingleObserver<List<Currency>>() {

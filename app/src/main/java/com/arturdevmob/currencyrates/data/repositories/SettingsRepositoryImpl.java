@@ -4,6 +4,7 @@ import com.arturdevmob.currencyrates.business.core.repositories.SettingsReposito
 import com.arturdevmob.currencyrates.data.sources.local.LocalStorage;
 
 public class SettingsRepositoryImpl implements SettingsRepository {
+    private static final String KEY_DATE_LAST_UPDATE_RATES = "date_last_update_rates"; // ключ с датой последнего обновления курсов
     private static final String KEY_ID_WORK_SYNC_CURRENCY_RATES = "id_word_sync_currency_rates"; // ID задачи WorkManager'а синхр. вал. курс.
     private static final String KEY_AUTO_UPDATE_RATES = "auto_sync_currency_rates"; // автоматическое обновление курсов
     private static final String KEY_SET_DARK_THEME = "set_dark_theme"; // утановлена темная тема
@@ -23,6 +24,17 @@ public class SettingsRepositoryImpl implements SettingsRepository {
     @Override
     public String getIdWorkSyncCurrencyRates() {
         return localStorage.getString(KEY_ID_WORK_SYNC_CURRENCY_RATES, "");
+    }
+
+    // Возвращает дату последнего обновления валютных курсов
+    @Override
+    public long getDateLastUpdateRates() {
+        return localStorage.getLong(KEY_DATE_LAST_UPDATE_RATES, 0);
+    }
+
+    @Override
+    public void setDateLastUpdateRates(long date) {
+        localStorage.putLong(KEY_DATE_LAST_UPDATE_RATES, date);
     }
 
     // Возвращает булевое значение на разрешение автосинхроризации валютных курсов

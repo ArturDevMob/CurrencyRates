@@ -10,4 +10,11 @@
         app:showAsAction="always"
         app:actionViewClass="androidx.appcompat.widget.SearchView"/>
 
+    <item
+        android:id="@+id/update_rates_action"
+        android:title="Обновить курсы"
+        android:icon="@drawable/ic_cloud_upload_white"
+        app:showAsAction="always"
+        android:visible="false"/>
+
 </menu>

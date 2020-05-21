@@ -87,10 +87,10 @@ public class CurrencyRepositoryImpl implements CurrencyRepository {
                 .map(CurrencyEntityMapper::map);
     }
 
-    // Получит валютные курсы по API
+    // Получит новые валютные курсы по API
     // Преобразует в модель для бизнес слоя
     @Override
-    public Single<List<Currency>> syncRates() {
+    public Single<List<Currency>> loadAndGetNewCurrencyRates() {
         return getAllCurrencyEntityNetworkAndAddFromDb()
                 .map(CurrencyEntityMapper::map)
                 .toList();

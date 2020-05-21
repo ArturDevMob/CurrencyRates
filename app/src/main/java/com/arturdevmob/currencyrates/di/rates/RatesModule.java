@@ -4,7 +4,7 @@ import com.arturdevmob.currencyrates.business.core.repositories.CurrencyReposito
 import com.arturdevmob.currencyrates.business.core.repositories.SettingsRepository;
 import com.arturdevmob.currencyrates.business.core.system.SyncRates;
 import com.arturdevmob.currencyrates.business.rates.RatesInteractor;
-import com.arturdevmob.currencyrates.presentation.rates.mvp.RatesPresenter;
+import com.arturdevmob.currencyrates.presentation.rates.mvp.RatesPresenterImpl;
 import com.arturdevmob.currencyrates.presentation.rates.ui.RatesAdapter;
 import dagger.Module;
 import dagger.Provides;
@@ -19,8 +19,8 @@ public class RatesModule {
 
     @Provides
     @RatesScope
-    RatesPresenter provideRatePresenter(RatesInteractor interactor) {
-        return new RatesPresenter(interactor);
+    RatesPresenterImpl provideRatePresenter(RatesInteractor interactor) {
+        return new RatesPresenterImpl(interactor);
     }
 
     @Provides

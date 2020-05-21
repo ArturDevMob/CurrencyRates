@@ -22,4 +22,14 @@ public class LocalStorage {
     public boolean getBoolean(String key, boolean value) {
         return preferences.getBoolean(key, value);
     }
+
+    public long getLong(String key, long value) {
+        return preferences.getLong(key, value);
+    }
+
+    public void putLong(String key, long value) {
+        preferences.edit()
+                .putLong(key, value)
+                .apply();
+    }
 }

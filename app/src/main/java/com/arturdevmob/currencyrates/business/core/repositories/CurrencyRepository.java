@@ -9,5 +9,5 @@ public interface CurrencyRepository {
     Single<List<Currency>> getListCurrencyBySearch(String query);
     Single<List<Currency>> getListCurrencyWithRus();
     Single<Currency> getCurrencyByCharCode(String charCode);
-    Single<List<Currency>> syncRates();
+    Single<List<Currency>> loadAndGetNewCurrencyRates();
 }
