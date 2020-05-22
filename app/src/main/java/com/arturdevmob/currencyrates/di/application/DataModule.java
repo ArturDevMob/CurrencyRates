@@ -4,13 +4,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import com.arturdevmob.currencyrates.business.core.repositories.CurrencyRepository;
 import com.arturdevmob.currencyrates.business.core.repositories.SettingsRepository;
-import com.arturdevmob.currencyrates.business.core.system.SyncRates;
 import com.arturdevmob.currencyrates.data.sources.db.AppDatabase;
 import com.arturdevmob.currencyrates.data.sources.local.LocalStorage;
 import com.arturdevmob.currencyrates.data.sources.network.CbrRateApi;
 import com.arturdevmob.currencyrates.data.repositories.CurrencyRepositoryImpl;
 import com.arturdevmob.currencyrates.data.repositories.SettingsRepositoryImpl;
-import com.arturdevmob.currencyrates.data.systemfiles.syncrates.SyncRatesImpl;
 import javax.inject.Singleton;
 import androidx.preference.PreferenceManager;
 import androidx.room.Room;
@@ -24,12 +22,6 @@ import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
 public class DataModule {
     public static final String DB_NAME = "currency_rates_database";
     public static final String API_CURRENCY_URL = "https://www.cbr.ru/scripts/";
-
-    @Provides
-    @Singleton
-    SyncRates provideDataSync(@AppContext Context context, CurrencyRepository currencyRepository, SettingsRepository settingsRepository) {
-        return new SyncRatesImpl(context, currencyRepository, settingsRepository);
-    }
 
     @Provides
     @Singleton

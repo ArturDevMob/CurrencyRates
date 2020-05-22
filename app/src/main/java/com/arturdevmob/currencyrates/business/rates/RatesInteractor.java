@@ -4,24 +4,17 @@ import com.arturdevmob.currencyrates.business.core.presenters.RatesPresenter;
 import com.arturdevmob.currencyrates.business.core.repositories.CurrencyRepository;
 import com.arturdevmob.currencyrates.business.core.models.Currency;
 import com.arturdevmob.currencyrates.business.core.repositories.SettingsRepository;
-import com.arturdevmob.currencyrates.business.core.system.SyncRates;
-
 import java.util.Calendar;
 import java.util.List;
-
 import io.reactivex.Single;
-import io.reactivex.functions.Consumer;
-import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 public class RatesInteractor {
     private RatesPresenter presenter;
-    private SyncRates syncRates;
     private CurrencyRepository currencyRepository;
     private SettingsRepository settingsRepository;
 
-    public RatesInteractor(SyncRates syncRates, CurrencyRepository currencyRepository, SettingsRepository settingsRepository) {
-        this.syncRates = syncRates;
+    public RatesInteractor(CurrencyRepository currencyRepository, SettingsRepository settingsRepository) {
         this.currencyRepository = currencyRepository;
         this.settingsRepository = settingsRepository;
     }
@@ -31,13 +24,12 @@ public class RatesInteractor {
     }
 
     public Single<List<Currency>> getAllCurrency() {
-        if (isOldCurrencyRates()) {
-            if (settingsRepository.isAutoSyncCurrencyRate()) {
+        if (settingsRepository.isAutoSyncCurrencyRate()) {
+            if (isOldCurrencyRates()) {
                 return this.getNewCurrencyRates();
-            } else {
-                presenter.notifyAboutOutdatedRates();
-                presenter.allowUpdateManuallyRates();
             }
+        } else {
+            presenter.allowUpdateManuallyRates();
         }
 
         return currencyRepository.getListCurrency()

@@ -3,14 +3,13 @@ package com.arturdevmob.currencyrates.presentation.rates.mvp;
 import com.arturdevmob.currencyrates.business.core.models.Currency;
 import com.arturdevmob.currencyrates.business.core.presenters.RatesPresenter;
 import com.arturdevmob.currencyrates.business.rates.RatesInteractor;
-
 import java.util.List;
-
 import io.reactivex.Observable;
 import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Function;
+import io.reactivex.schedulers.Schedulers;
 
 public class RatesPresenterImpl implements RatesPresenter {
     private CompositeDisposable compositeDisposable;
@@ -34,11 +33,6 @@ public class RatesPresenterImpl implements RatesPresenter {
 
     public RatesView getView() {
         return this.view;
-    }
-
-    @Override
-    public void notifyAboutOutdatedRates() {
-        getView().showSnackBar("Текущие валютные курсы устарели!");
     }
 
     @Override
@@ -72,10 +66,15 @@ public class RatesPresenterImpl implements RatesPresenter {
 
     // Принимает от вью поисковые запросы. Получает валютные курсы на основании запроса, просит вью показать их
     public void loadCurrencyBySearch(Observable<String> searchQueryObservable) {
-        getView().showProgress(true);
-
         compositeDisposable.add(
                 searchQueryObservable
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .doOnNext(s -> {
+                            getView().showProgress(true);
+                            getView().showCurrencyRates(false);
+                            getView().showErrorLoad(false);
+                        })
+                        .observeOn(Schedulers.io())
                         .flatMapSingle((Function<String, Single<List<Currency>>>) s -> interactor.getAllCurrencyBySearch(s))
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(
@@ -83,10 +82,10 @@ public class RatesPresenterImpl implements RatesPresenter {
                                     getView().showProgress(false);
                                     getView().showCurrencyRates(true);
                                     getView().showCurrencyRates(currencies);
+                                    getView().showErrorLoad(false);
                                 },
                                 throwable -> {
                                     getView().showProgress(false);
-                                    getView().showCurrencyRates(false);
                                     getView().showErrorLoad(true);
                                 }
                         )

@@ -61,15 +61,7 @@ public class CurrencyRepositoryImpl implements CurrencyRepository {
     @Override
     public Single<Currency> getCurrencyByCharCode(String charCode) {
         return database.currencyDao().getCurrency(charCode)
-                .flatMap((Function<List<CurrencyEntity>, Single<CurrencyEntity>>) currencyEntities -> {
-                    if (currencyEntities.size() == 0) {
-                        return Single.fromObservable(getAllCurrencyEntityNetworkAndAddFromDb()
-                                .filter(entity -> entity.getCharCode().equals(charCode))
-                        );
-                    }
-
-                    return Single.just(currencyEntities.get(0));
-                })
+                .flatMap((Function<List<CurrencyEntity>, Single<CurrencyEntity>>) currencyEntities -> Single.just(currencyEntities.get(0)))
                 .map(CurrencyEntityMapper::map);
     }
 

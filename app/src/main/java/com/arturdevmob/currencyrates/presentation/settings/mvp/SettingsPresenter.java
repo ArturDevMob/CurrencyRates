@@ -22,19 +22,6 @@ public class SettingsPresenter {
         return view;
     }
 
-    // Показывает сообщение о запуске синхроризации валютных курсов
-    // И запускает саму синхроризацию
-    public void onClickUpdateCurrencyRates() {
-        getView().showSnackbar("Получаю актуальный курс валют ...");
-
-        interactor.syncCurrencyRates();
-    }
-
-    // Изменение настройки автоматического обновления валютных курсов
-    public void onClickAutoUpdateCurrencyRates() {
-        interactor.changeSettingAutoSyncCurrencyRates();
-    }
-
     // Изменение темы приложения на светлую или темную
     public void onClickChangeTheme() {
         boolean isSetLightThemeApp = interactor.isSetDarkThemeApp();

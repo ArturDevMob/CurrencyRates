@@ -54,14 +54,6 @@ public class SettingsFragment extends PreferenceFragmentCompat implements Settin
     @Override
     public boolean onPreferenceTreeClick(Preference preference) {
         switch (preference.getKey()) {
-            case KEY_AUTO_UPDATE_RATES:
-                presenter.onClickAutoUpdateCurrencyRates();
-            break;
-
-            case KEY_UPDATE_RATES:
-                presenter.onClickUpdateCurrencyRates();
-            break;
-
             case KEY_SET_DARK_THEME:
                 presenter.onClickChangeTheme();
             break;

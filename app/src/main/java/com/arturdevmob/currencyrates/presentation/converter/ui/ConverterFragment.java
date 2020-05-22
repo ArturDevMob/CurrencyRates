@@ -31,7 +31,7 @@ public class ConverterFragment extends Fragment implements ConverterView {
     @Inject ConverterPresenter presenter;
     @BindView(R.id.progress) ProgressBar progressBar;
     @BindView(R.id.converter_layout) View converterLayout;
-    @BindView(R.id.include_error_load_data) View errorLoadDataLayout;
+    @BindView(R.id.error_load_converter_text) TextView errorLoadConverterText;
     @BindView(R.id.first_flag_country_image) ImageView firstFlagCountryImage;
     @BindView(R.id.first_char_code_text) TextView firstCharCodeText;
     @BindView(R.id.first_value_edit) EditText firstValueEdit;
@@ -79,14 +79,14 @@ public class ConverterFragment extends Fragment implements ConverterView {
     public void showProgress() {
         progressBar.setVisibility(View.VISIBLE);
         converterLayout.setVisibility(View.GONE);
-        errorLoadDataLayout.setVisibility(View.GONE);
+        errorLoadConverterText.setVisibility(View.GONE);
     }
 
     @Override
     public void showConverterLayout() {
         progressBar.setVisibility(View.GONE);
         converterLayout.setVisibility(View.VISIBLE);
-        errorLoadDataLayout.setVisibility(View.GONE);
+        errorLoadConverterText.setVisibility(View.GONE);
     }
 
     @Override
@@ -98,7 +98,7 @@ public class ConverterFragment extends Fragment implements ConverterView {
     public void showErrorLoad() {
         progressBar.setVisibility(View.GONE);
         converterLayout.setVisibility(View.GONE);
-        errorLoadDataLayout.setVisibility(View.VISIBLE);
+        errorLoadConverterText.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -147,11 +147,6 @@ public class ConverterFragment extends Fragment implements ConverterView {
     @OnClick(R.id.invert_image)
     public void onClickInvertImage(View view) {
         presenter.onClickInvertCurrency();
-    }
-
-    @OnClick(R.id.include_error_load_data)
-    public void onClickErrorLoadDataLayout(View view) {
-        presenter.onClickErrorLoadDataLayout();
     }
 
     @Override

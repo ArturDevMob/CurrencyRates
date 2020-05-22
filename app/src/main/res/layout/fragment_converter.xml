@@ -108,10 +108,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <include
-        android:id="@+id/include_error_load_data"
-        layout="@layout/error_load_data"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/error_load_converter_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/error_load_converter" />
 
 </LinearLayout>

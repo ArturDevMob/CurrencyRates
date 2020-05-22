@@ -11,13 +11,6 @@
         android:icon="@drawable/ic_update_time_white"
         android:defaultValue="true"/>
 
-    <Preference
-        android:key="sync_currency_rates"
-        android:title="@string/update_manually"
-        android:summary="@string/update_manually_desc"
-        android:icon="@drawable/ic_cloud_upload_white"
-        android:selectable="true"/>
-
 </PreferenceCategory>
 
 <PreferenceCategory

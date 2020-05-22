@@ -4,6 +4,7 @@
     <string name="converter">Конвертер</string>
     <string name="settings">Настройки</string>
     <string name="error_load_rate_cbr">Не удалось загрузить курсы валют. \nВозможно у вас отсутствует интернет соединение.\nНажмите на это сообщение, чтобы повторить попытку.</string>
+    <string name="error_load_converter">Не удалось загрузить конвертер валют. \nВ приложении отсутствуют актуальные курсы валют.</string>
     <string name="repeat_load">Повторить загрузку</string>
     <string name="chosen_currency">Выберите валюту</string>
     <string name="cancel">Отмена</string>
@@ -11,8 +12,6 @@
     <string name="auto_update_currency_rates">Автоматическое обновление валютных курсов</string>
     <string name="auto_update">Автоматическое обновление</string>
     <string name="auto_update_desc">Опция позволяет приложению автоматически получать актуальные валютные курсы</string>
-    <string name="update_manually">Обновить вручную</string>
-    <string name="update_manually_desc">Нажмите, если хотите получить актуальные валютные курсы прямо сейчас</string>
     <string name="appearance_app">Внешний вид приложения</string>
     <string name="dark_theme">Темная тема</string>
     <string name="dark_theme_desc">Включение опции сделает приложение в темных тонах</string>

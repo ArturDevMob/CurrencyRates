@@ -80,7 +80,7 @@ public class RatesFragment extends Fragment implements RatesView {
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.toolbar_search, menu);
+        inflater.inflate(R.menu.toolbar, menu);
 
         MenuItem menuItem = menu.findItem(R.id.search_action);
         SearchView searchView = (SearchView) menuItem.getActionView();
